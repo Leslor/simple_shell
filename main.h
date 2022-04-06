@@ -8,21 +8,12 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <fcntl.h>
-
+#include <sys/stat.h>
 
 #define BUFFER 1024
 
-/**
-* struct lists_t - linked list of commands
-* @cmd: command
-* @next: pointer to next node
-*
-* Description: linked_list struct for commands
-*/
-typedef struct lists_t
-{
-char *cmd;
-struct list_t *next;
-} list_cmd;
+
+
+char *token_maker(char *input);
 
 #endif /* MAIN_H */
