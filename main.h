@@ -9,6 +9,7 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <signal.h>
+#include <sys/types.h>
 
 /**
  * struct list_s - singly linked list
@@ -26,5 +27,9 @@ typedef struct list_s
 list_cmd *add_node_at_end(list_cmd **head, const char *str);
 char **tokenizer(char *input);
 void free_list(list_cmd *head);
-int execve(char **argv);
+
+list_cmd *add_node_at_end(list_cmd **head, const char *str);
+char **tokenizer(char *input);
+void free_list(list_cmd *head);
+int _execve(char **argVec);
 #endif

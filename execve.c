@@ -1,13 +1,8 @@
-#include <stdio.h>
-#include <sys/types.h>
-#include <unistd.h> 
-#include <stdlib.h>
-#include <errno.h>  
-#include <sys/wait.h>
-#include <signal.h>
+#include "main.h"
 
-int execve(char **argv)
+int _execve(char **argVec)
 {
+		printf("Starting the execution Process");
 		pid_t child_pid = 0;
 		int status;
 
@@ -15,6 +10,7 @@ int execve(char **argv)
 		printf("child_pid = %u\n", child_pid);
 		printf("process :%u\n", getpid());
 		printf("process :%u\n", getppid());
+
 		if (child_pid == -1)
 		{
 			perror("Error: ");
@@ -26,7 +22,7 @@ int execve(char **argv)
 				//char *envVec[] = {NULL};
 				printf("Start execve: %s\n", argVec[0]);
 				printf("=========================================\n");
-				if (execve(*argVec[0], *argVec, envVec) == -1)
+				if (execve(argVec[0], argVec, NULL) == -1)
 						perror("Could not execute execve");
 				kill(child_pid,0);
 				printf("Oops, something went wrong\n");
@@ -37,6 +33,7 @@ int execve(char **argv)
 			wait(&status);
 			printf("parent process, pid = %u\n",getpid()); 
 		}
+		printf("Finish the execution Process");
 	return (0);
 }
 
