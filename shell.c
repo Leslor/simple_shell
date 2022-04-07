@@ -2,37 +2,44 @@
 
 int main(void)
 {
-        char *cmd_l = NULL;
-        size_t buf_size = 0;
-        ssize_t bytes_read = 0;
-        char *tokens;
+	char *cmd_l = NULL;
+	char *string, **av;
+	int status, i;
+	pid_t child_pid;
+	size_t buf_size = 0;
+	ssize_t bytes_read = 0;
 
-             /*Display promtp " $ " and wait an input */
-        while (1)
-        {
-                printf("$ ");
-                /*Getting all the commands*/
-                bytes_read = getline(&cmd_l, &buf_size, stdin);
-                printf("Bytes_read : %ld\n", bytes_read);
-                if (bytes_read == -1)
-                {
-                        if (cmd_l)
-                        {
-                          free(cmd_l);
-                        }
-                        perror("Error: ");
-                        exit(1);
-                }
-                cmd_l[strlen(cmd_l) - 1] ='\0';
-               // printf("%s",cmd_l );
-                tokens = token_maker(cmd_l);
-                printf("%s\n", tokens);
-                /*Probando*/
-                //if (tokens == NULL)
-                //{
-                  //free(tokens);
-               //   free(cmd_l);
-                //}
-        }
-        return(0);
+/*Display promtp " $ " and wait an input */
+	while (1)
+	{
+		printf("$ ");
+/*An array of characteres which a copy of the string taken from stdin.*/
+		bytes_read = getline(&cmd_l, &buf_size, stdin);
+		printf("%ld\n", bytes_read);
+		if (bytes_read == -1)
+		{
+			free(cmd_l);
+			return (0);
+		}
+		string = malloc(strlen(cmd_l));
+		if (!string)
+		{
+			free(string);
+			return(0);
+		}
+
+		for (i = 0; i < strlen(cmd_l); i++)
+		{
+			string[i] = cmd_l[i];
+		}
+		string[i] = '\0';
+/* string[] = {"tail -l -n"}*/
+		free(cmd_l);
+/* Execute tokenizer */
+		av = tokenizer(string);
+/* Executes the program referred to by avg*/
+		printf("Este es el av[%d]: %s ", i, *av);
+		free(string);
+	}
+	return (0);
 }
