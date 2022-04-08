@@ -1,35 +1,29 @@
 #include "main.h"
 
+
 char **tokenizer(char *input)
 {
-	int count = 0, i = 0;
-	char *t, **av, *copy;
-	list_cmd *head = NULL;
-	struct stat st;
-
-	/*copy = strdup(input);*/    /* input = string[] = {"tail -l -n"} */
-	/* free(input);*/
-	t = strtok(input, " ");
-	while (t)
-	{
-		add_node_at_end(&head, t);        /* {"tail", "-l", "-n"}*/
-		count++;
-		t = strtok(NULL, " ");
-	}
-	/* free(copy);*/                                /* copy doesn't exist */
-	av = malloc(sizeof(char *) * (count));
-
-        while (i < count)
-	{
-		av[i] = strdup(head->str);
-		head = head->next;
-                printf("Este es el av %i: %s\n", i, av[i]);
-		i++;
-	}
-        av[count] = NULL;
-
+        int count = 0, i = 0;
+        char **av = NULL;
         
-        free_list(head);
-	
-	return (av);
+	printf("Empezando a ejecutar\n");
+        av = malloc(sizeof(char *) * 1024);
+
+        if (!av)
+                exit(-1);
+
+        while ((av[count] = strtok(input, " ")) != NULL)
+        {       
+                input = NULL;
+                printf("Este es el av[%d]: %s\n ", count, av[count]);
+                count++;
+        }
+        while (av[i] != NULL)
+        {
+                printf("free[%d] -> %s\n",i, av[i]);
+                i++;
+        }
+        free(input);
+       
+        return (av);
 }
