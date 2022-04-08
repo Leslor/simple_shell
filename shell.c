@@ -3,43 +3,31 @@
 int main(void)
 {
 	char *cmd_l = NULL;
-	char *string, **av;
-	int status, i;
-	pid_t child_pid;
+	char **av;
 	size_t buf_size = 0;
 	ssize_t bytes_read = 0;
 
-/*Display promtp " $ " and wait an input */
+/*Display promtp "$ " and wait an input */
 	while (1)
 	{
 		printf("$ ");
-/*An array of characteres which a copy of the string taken from stdin.*/
 		bytes_read = getline(&cmd_l, &buf_size, stdin);
 		printf("%ld\n", bytes_read);
 		if (bytes_read == -1)
 		{
-			free(cmd_l);
+			if (cmd_l)
+				free(cmd_l);
 			return (0);
 		}
-		string = malloc(strlen(cmd_l));
-		if (!string)
-		{
-			free(string);
-			return(0);
-		}
-
-		for (i = 0; i < strlen(cmd_l); i++)
-		{
-			string[i] = cmd_l[i];
-		}
-		string[i] = '\0';
-/* string[] = {"tail -l -n"}*/
-		free(cmd_l);
+		/*cmd_l[strlen(cmd_l) - 1] = '\0';*/
+		
+		if (strlen(cmd_l) == 1)
+			continue;
+		
 /* Execute tokenizer */
-		av = tokenizer(string);
+		av = tokenizer(cmd_l); 
 /* Executes the program referred to by avg*/
-		printf("Este es el av[%d]: %s ", i, *av);
-		free(string);
+		_free(av);
 	}
 	return (0);
 }
