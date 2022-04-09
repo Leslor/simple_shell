@@ -2,46 +2,53 @@
 
 int main(void)
 {
-le ()	char *cmd_l = NULL;
-	char *string, **av;
-	int status, i;
-	int execution;
-	pid_t child_pid;
+	char *cmd_l = NULL;
+	int validation1;
 	size_t buf_size = 0;
 	ssize_t bytes_read = 0;
-
-/*Display promtp " $ " and wait an input */
+	char *exi = "exit";	
+	char **av;
+	/*Display $ " and wait an input */
 	while (1)
 	{
+		buf_size = 0;
 		printf("$ ");
-/*An array of characteres which a copy of the string taken from stdin.*/
 		bytes_read = getline(&cmd_l, &buf_size, stdin);
 		printf("%ld\n", bytes_read);
 		if (bytes_read == -1)
 		{
-			free(cmd_l);
+			if (cmd_l)
+				free(cmd_l);
 			return (0);
 		}
-		string = malloc(strlen(cmd_l));
-		if (!string)
+
+		if (strlen(cmd_l) == 1)
+			continue;
+
+		/* Execute tokenizer */
+		av = tokenizer(cmd_l, " \n");
+
+		/* Exit to the sistem: */
+		if (strcmp(av[0], exi) == 0)
 		{
-			free(string);
-			return(0);
+				printf("Saliendo del sistema\n");
+				_free(av);
+				break;
 		}
 
-		for (i = 0; i < strlen(cmd_l); i++)
+		/*Validation*/	
+		validation1 = validation(av);
+		if (validation1 == 0)
 		{
-			string[i] = cmd_l[i];
+			_execve(av);
 		}
-		string[i] = '\0';
-/* string[] = {"tail -l -n"}*/
-		free(cmd_l);
-/* Execute tokenizer */
-		av = tokenizer(string);
-		execution = _execve(av);
-/* Executes the program referred to by avg*/
-		printf("Este es el av[%d]: %s ", i, *av);
-		free(string);
+		else
+		{
+			perror(av[0]);
+		}
+
+		/* Free **av */
+		_free(av);
 	}
 	return (0);
 }
