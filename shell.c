@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	char *cmd_l = NULL;
+le ()	char *cmd_l = NULL;
 	char *string, **av;
 	int status, i;
 	int execution;

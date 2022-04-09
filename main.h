@@ -32,4 +32,5 @@ list_cmd *add_node_at_end(list_cmd **head, const char *str);
 char **tokenizer(char *input);
 void free_list(list_cmd *head);
 int _execve(char **argVec);
+int _access(char **av);
 #endif
