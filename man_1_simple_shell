@@ -1,0 +1,45 @@
+.TH simple_shell "April 2022" "1.0" "hsh - Simple Shell General Commands Manual"
+.SH NAME
+.B Simple Shell
+- UNIX command line interpreter
+
+.SH SYNOPSIS
+.B ./hsh
+.I [OPTIONS] [FILE]
+
+.B Interactive mode
+.I [command_name][option_name][argument ...]
+
+.SH DESCRIPTION
+The simple shell is a program that takes commands from the input -that we write- and gives them to the operating system to perform.This project is a simple version of a command line interpreter for the system. An interactive shell generally prompts before each command, inspects arguments, execute them and handles possible errors. The simple shell reads input in terms of lines from a file and breaks it up into words at whitespaces.
+ 
+.SS INVOCATION
+
+To start the interactive mode the program will be executed, then starts the mode indicated by '$ ', to exit of the mode type 'exit' in the mode non-interactive the location that contains the command to be executed must be specified in the command line.
+
+.SS EXECUTION
+
+The program takes the arguments of the command line in a string and it is tokenizes into words using ' ' (space) as a delimiter, the first word is consider the command and all remaining are considered the arguments to that command. If the command is valid:
+
+1. If the first argument is different to '.', '/' or shell builtin, the program searches in the PATH and then invocates it.
+2. If the first character is '.' or '/', the program executes that typed command with the passed argument.
+
+.SH EXAMPLES
+$ ./hsh
+ mysimple@shell $ /bin/ls
+ README.md main.h shell.c tokens.c frees.c 
+ mysimple@shell $
+ mysimple@shell $ exit
+ $
+.PP
+ $ echo "/bin/ls" | ./hsh
+ README.md main.h shell.c tokens.c frees.c
+ $
+
+.SH SEE ALSO
+sh(1)
+.SH BUGS
+Keep in mind this is still a work in progress and does not have fully functionality of a shell. You can fork the repository. 
+
+.SH AUTHORS
+Written by Leslie Paz & Yohel Cruz
