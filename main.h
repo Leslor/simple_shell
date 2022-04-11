@@ -14,25 +14,28 @@
 #define BUFSIZE 1024
 
 /**
- * struct list_s - singly linked list
- * @str: string tokenized of command line arguments.
- * @next: points to the next node in the linked list.
- *
- * Description: singly linked list, the nodes are agregated at the end.
- */
+  * struct list_s - ...
+  * @av_0: value
+  * @av_1: path
+  *
+  * Description: Structure of av
+  * lits_t: av typedef structure
+  */
 typedef struct list_s
 {
-	char *str;
-	struct list_s *next;
-} list_cmd;
+	int av_0;
+	char *av_1;
+} list_t;
 
-list_cmd *add_node_at_end(list_cmd **head, const char *str);
-char **tokenizer(char *input);
 void _free(char **av);
-
-list_cmd *add_node_at_end(list_cmd **head, const char *str);
-char **tokenizer(char *input);
-void free_list(list_cmd *head);
-int _execve(char **argVec);
-int _access(char **av);
+int built_or_env(char **av);
+void _execute_built(int i);
+void _valid_execve(char **argVec);
+char **validation(char **arv);
+int _access(char *av);
+void _execve(char **argVec);
+/*Validar*/
+char **tokenizer(char *input, char *delimit);
+void free_list(list_t *d);
+void valid_exec(char **av, int valit_built_env);
 #endif

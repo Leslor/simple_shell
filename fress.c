@@ -14,3 +14,12 @@ void _free(char **av)
         }
         free(av);
 }
+
+void free_list(list_t *d)
+{
+        if (d != NULL)
+        {
+                /*free((*d).av_1);*/
+                free((d));
+        }
+}
