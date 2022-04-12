@@ -12,10 +12,8 @@ char *prompt(void)
 	size_t buf_size = 0;
 	ssize_t bytes_read = 0;
 
-	printf("Empezamos el bucle con Prompt\n");
 	printf("$ ");
 	bytes_read = getline(&input, &buf_size, stdin);
-	printf("%ld\n", bytes_read);
 	if (bytes_read == -1)
 	{
 		if (input)
