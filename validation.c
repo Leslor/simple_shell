@@ -1,32 +1,32 @@
 #include "main.h"
 
+/**
+ * validation - function that validates
+ * and built or env
+ * @arv: array eoth values to evaluate
+ * Return: char **
+ */
+
 char **validation(char **arv)
 {
-        char *first_char, *second_char, **new_arv = NULL;
-		int count;
-		char *character[] =  {".", "/"};
-		printf ("Empezamos con la validacion\n");
-       
-		/*Script Case "./script"*/
-		first_char = arv[0];
-		second_char = first_char + 1;
-		
-		printf("First char: %c\n", first_char[0]);
-	
-		while (arv[count])
-		{
-			count++;
-		}
+	char *fc, *sc, **new_arv = NULL;
+	int count;
+	char *c[] =  {".", "/"};
 
-		if ((first_char[0] == *character[0] && second_char[0] == *character[1]) ||(first_char[0] == *character[1]))
-		{	
-			printf("Execute an Script\n");
-			arv[count] = NULL;
-			return(arv);
-		}
-		else
-		{		
-			new_arv = arv_for_execute(arv);
-			return (new_arv);
-		}
+	fc = arv[0];
+	sc = fc + 1;
+	while (arv[count])
+	{
+		count++;
+	}
+	if ((fc[0] == *c[0] && sc[0] == *c[1]) || (fc[0] == *c[1]))
+	{
+		arv[count] = NULL;
+		return (arv);
+	}
+	else
+	{
+		new_arv = arv_for_execute(arv);
+		return (new_arv);
+	}
 }
