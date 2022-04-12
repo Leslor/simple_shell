@@ -11,11 +11,17 @@ void valid_exec(char **av,int valid_built_env)
 				_execute_built(valid_built_env);
 		}
 		/*Validation & execution env commands*/
-		if ( valid_built_env == 2)
+		if (valid_built_env == 2)
 		{
 				printf("Se verifica si es un env or un Script\n");
 				argv = validation(av);
-				_execve(argv);
+				if (argv == NULL)
+				{
+						perror(av[0]);
+						return;
+				}
+				else
+					_execve(argv);
 			/*	_free(argv);*/
 				printf("Se valida y se pasara a ejecutar");
 		}

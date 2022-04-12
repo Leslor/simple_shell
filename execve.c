@@ -11,6 +11,7 @@ void _execve(char **argVec)
 {
 	pid_t child_pid;
 	int status;
+	extern char **environ;
 
 	printf("Starting the execution Process\n");
 	child_pid = fork();

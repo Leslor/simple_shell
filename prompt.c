@@ -20,7 +20,7 @@ char *prompt(void)
 	{
 		if (input)
 			free(input);
-		return (0);
+		return(NULL);
 	}
 	return (input);
 }

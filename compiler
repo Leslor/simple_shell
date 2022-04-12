@@ -1,3 +1,3 @@
 #!/bin/bash
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 validation.c  tokens.c built_env.c fress.c _access.c shell.c validation_execution.c execve.c -g
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 validation.c  tokens.c built_env.c fress.c _access.c shell.c validation_execution.c execve.c  valid_type_environ.c prompt.c -g
 ./a.out

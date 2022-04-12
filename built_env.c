@@ -12,9 +12,9 @@ int built_or_env(char **av)
 		char *exit = "exit";
 		char *env = "env";
 
-		if (strcmp(av[0], exit) == 0)
+		if (strcmp(av[0], exit) == 0 && av[1] == NULL)
 			return (0);
-		if ( strcmp(av[0], env) == 0)
+		if (strcmp(av[0], env) == 0 && av[1] == NULL)
 			return (1);
 		else
 			return (2);
@@ -28,7 +28,6 @@ int built_or_env(char **av)
 */
 void _execute_built(int i)
 {
-		extern char **environ;
 		if (i == 0)
 		{
 		printf("Es Exit\n");

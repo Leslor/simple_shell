@@ -21,12 +21,8 @@
   * Description: Structure of av
   * lits_t: av typedef structure
   */
-typedef struct list_s
-{
-	int av_0;
-	char *av_1;
-} list_t;
 
+extern char **environ;
 void _free(char **av);
 int built_or_env(char **av);
 void _execute_built(int i);
@@ -34,10 +30,8 @@ void _valid_execve(char **argVec);
 char **validation(char **arv);
 int _access(char *av);
 void _execve(char **argVec);
-
-
+char *prompt(void);
 char **tokenizer(char *input, char *delimit);
-void free_list(list_t *d);
 void valid_exec(char **av, int valit_built_env);
 char **arv_for_execute(char **arv);
 #endif
