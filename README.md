@@ -3,7 +3,7 @@
 
 ## Description
 
-This is a project for Holberton School Peru. The objective is to create a simple UNIX command interpreter with limited functionality but applying main functionalities of a more robust shell. Shell is a program that takes commands from an input given by the user in order to perfomm this in the opearting system.  Typical operations performed by shell scripts include file manipulation, program execution, and printing text. 
+This is a project for Holberton School Peru. The objective is to create a simple UNIX command interpreter with limited functionality but applying main functionalities of a more robust shell. Shell is a program that takes commands from an input given by the user in order to perfomm this in the opearting system.  Typical operations performed by shell scripts include file manipulation, program execution, and printing text.
 
 Previously, we need to learn about:
 * How does a shell work.
@@ -17,7 +17,7 @@ Previously, we need to learn about:
 
 ## Technologies & Tools
 + Allowed editors: **vi**, **vim**, **emacs**
-+ Git platform: **Github** 
++ Git platform: **Github**
 ---
 
 ## Requirements
@@ -56,5 +56,5 @@ Create a new branch with the name of your feature or fix and make a pull request
 ---
 
 ## Authors
-* **Leslie Paz** - [Leslor](https://github.com/Leslor) 
-* **Yohel Cruz** - [yohelce](https://github.com/yohelce) 
+* **Leslie Paz** - [Leslor](https://github.com/Leslor)
+* **Yohel Cruz** - [yohelce](https://github.com/yohelce)
