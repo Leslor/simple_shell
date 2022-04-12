@@ -12,7 +12,7 @@
 
 .SH DESCRIPTION
 The simple shell is a program that takes commands from the input -that we write- and gives them to the operating system to perform.This project is a simple version of a command line interpreter for the system. An interactive shell generally prompts before each command, inspects arguments, execute them and handles possible errors. The simple shell reads input in terms of lines from a file and breaks it up into words at whitespaces.
- 
+
 .SS INVOCATION
 
 To start the interactive mode the program will be executed, then starts the mode indicated by '$ ', to exit of the mode type 'exit' in the mode non-interactive the location that contains the command to be executed must be specified in the command line.
@@ -27,7 +27,7 @@ The program takes the arguments of the command line in a string and it is tokeni
 .SH EXAMPLES
 $ ./hsh
  mysimple@shell $ /bin/ls
- README.md main.h shell.c tokens.c frees.c 
+ README.md main.h shell.c tokens.c frees.c
  mysimple@shell $
  mysimple@shell $ exit
  $
@@ -39,7 +39,7 @@ $ ./hsh
 .SH SEE ALSO
 sh(1)
 .SH BUGS
-Keep in mind this is still a work in progress and does not have fully functionality of a shell. You can fork the repository. 
+Keep in mind this is still a work in progress and does not have fully functionality of a shell. You can fork the repository.
 
 .SH AUTHORS
 Written by Leslie Paz & Yohel Cruz
