@@ -1,4 +1,4 @@
-.TH simple_shell "April 2022" "1.0" "hsh - Simple Shell General Commands Manual"
+.TH simple_shell 1  "April 2022" "1.0" "hsh - Simple Shell General Commands Manual"
 .SH NAME
 .B Simple Shell
 - UNIX command line interpreter
