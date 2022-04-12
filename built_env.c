@@ -32,12 +32,10 @@ void _execute_built(int i)
 {
 	if (i == 0)
 	{
-		printf("Es Exit\n");
 		exit(1);
 	}
 	if (i == 1)
 	{
-		printf("Es env");
 		while (environ[i])
 		{
 			write(STDOUT_FILENO, environ[i], strlen(environ[i]));
