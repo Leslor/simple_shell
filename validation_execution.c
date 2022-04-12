@@ -1,28 +1,31 @@
 #include "main.h"
 
-void valid_exec(char **av,int valid_built_env)
+/**
+ * valid_exec - function that validates
+ * @av: array eoth values to evaluate
+ * @valid_built_env: and int variable
+ * Return: nothin
+ */
+
+void valid_exec(char **av, int valid_built_env)
 {
-		char **argv;
-		/*NOTA: Colocarlo en otra funcion*/
-		/*Execution built commands*/
-		if (valid_built_env == 0 || valid_built_env == 1)
+	char **argv;
+
+	if (valid_built_env == 0 || valid_built_env == 1)
+	{
+		printf("Es un builtin command\n");
+		_execute_built(valid_built_env);
+	}
+	if (valid_built_env == 2)
+	{
+		printf("Se verifica si es un env or un Script\n");
+		argv = validation(av);
+		if (argv == NULL)
 		{
-				printf("Es un builtin command\n");
-				_execute_built(valid_built_env);
+			perror(av[0]);
+			return;
 		}
-		/*Validation & execution env commands*/
-		if (valid_built_env == 2)
-		{
-				printf("Se verifica si es un env or un Script\n");
-				argv = validation(av);
-				if (argv == NULL)
-				{
-						perror(av[0]);
-						return;
-				}
-				else
-					_execve(argv);
-			/*	_free(argv);*/
-				printf("Se valida y se pasara a ejecutar");
-		}
+		else
+			_execve(argv);
+	}
 }
