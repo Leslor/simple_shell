@@ -27,22 +27,12 @@ int main(void)
 				cmd_l[i] = '\0';
 		}
 		result = &cmd_l[i];
-		printf("ahora cmd_l es: %s\n", cmd_l);
-		printf("este es su len: %ld\n", strlen(cmd_l));
-		printf("Ingresando a la funcion Tokenizer\n");
 		av = tokenizer(result, " \n");  /* Execute tokenizer */
 		if (!av)
 			exit(0);
-		printf("%s\n", av[0]);
-		/* Validation builtin or env commands */
 		valid_built_env = built_or_env(av);
-		/*NOTA: Colocarlo en otra funcion*/
-
-		printf("Pasa a la validacion y ejecucion\n");
 		valid_exec(av, valid_built_env);
 		_free(av);
-		printf("terminado el Bucle Prompt\n");
-
 	}
 	return (0);
 }
