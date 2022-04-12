@@ -13,15 +13,6 @@
 
 #define BUFSIZE 1024
 
-/**
-  * struct list_s - ...
-  * @av_0: value
-  * @av_1: path
-  *
-  * Description: Structure of av
-  * lits_t: av typedef structure
-  */
-
 extern char **environ;
 void _free(char **av);
 int built_or_env(char **av);
@@ -34,4 +25,5 @@ char *prompt(void);
 char **tokenizer(char *input, char *delimit);
 void valid_exec(char **av, int valit_built_env);
 char **arv_for_execute(char **arv);
-#endif
+
+#endif /*MAIN_H*/
