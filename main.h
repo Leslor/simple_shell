@@ -34,8 +34,10 @@ void _valid_execve(char **argVec);
 char **validation(char **arv);
 int _access(char *av);
 void _execve(char **argVec);
-/*Validar*/
+
+
 char **tokenizer(char *input, char *delimit);
 void free_list(list_t *d);
 void valid_exec(char **av, int valit_built_env);
+char **arv_for_execute(char **arv);
 #endif

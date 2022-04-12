@@ -19,7 +19,6 @@ char **arv_for_execute(char **arv)
 			return (0);
 		new_arv = malloc(sizeof(char*) * 1024);
  	
-
       		 while (Path_tokens[i])
         	{
             	total = strcpy(total, Path_tokens[i]);
@@ -50,10 +49,8 @@ char **arv_for_execute(char **arv)
 			}
 			free(total);
 			free(Path_tokens);
-		}
+
 		free(PATH1);
-
-
 
 }		
 
