@@ -23,7 +23,7 @@ int built_or_env(char **av)
 /**
  * _execute_built - function that validates
  * and built or env
- * @av: array eoth values to evaluate
+ * @i: int
  *
  * Return: void
  */
