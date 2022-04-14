@@ -12,9 +12,11 @@ int main(void)
 	int valid_built_env = 0;
 	char **av = NULL;
 
+	signal(SIGINT, SIG_IGN);
 	while (1) /*Display $ " and wait an input */
 	{
-		write(STDOUT_FILENO, dollar, 2);
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, dollar, 2);
 		cmd_l = prompt();
 		cmd_l = spaces(cmd_l);
 		av = tokenizer(cmd_l, " \n");  /* Execute tokenizer */
