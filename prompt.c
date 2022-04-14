@@ -12,13 +12,21 @@ char *prompt(void)
 	size_t buf_size = 0;
 	ssize_t bytes_read = 0;
 
-	printf("$ ");
 	bytes_read = getline(&input, &buf_size, stdin);
 	if (bytes_read == -1)
 	{
 		if (input)
+		{
+			free_env();
 			free(input);
-		return (NULL);
+		}
+		exit(0);
 	}
+	if (input == NULL)
+	{
+		free_env();
+		exit(0);
+	}
+	input[strlen(input) - 1] = '\0';
 	return (input);
 }

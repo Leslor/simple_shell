@@ -14,7 +14,9 @@
 #define BUFSIZE 1024
 
 extern char **environ;
+char *spaces(char *input);
 void _free(char **av);
+void free_env(void);
 int built_or_env(char **av);
 void _execute_built(int i);
 void _valid_execve(char **argVec);
